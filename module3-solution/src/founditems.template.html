@@ -1,5 +1,5 @@
 <ul ng-if="fidc.items.length">
-  <li ng-repeat="item in fidc.items">{{item.name}}
+  <li ng-repeat="item in fidc.items">{{item.short_name}}: <strong>{{item.name}}</strong>: {{item.description}}
     <button class="btn btn-xs btn-default" ng-click="fidc.onRemove({index: $index})">Don't want this one!</button>
   </li>
 </ul>
