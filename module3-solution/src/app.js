@@ -34,10 +34,13 @@ function MenuSearchService($http, MenuApiUrl) {
       url: MenuApiUrl + 'menu_items.json'
     }).then(function(result) {
       var items = result.data.menu_items;
-      var found = items.filter(function(el) {
-        return el.description.indexOf(searchTerm) !== -1 ||
-          el.name.indexOf(searchTerm) !== -1;
-      });
+      var found = [];
+      if (searchTerm !== "") {
+        found = items.filter(function(el) {
+          return el.description.indexOf(searchTerm) !== -1 ||
+            el.name.indexOf(searchTerm) !== -1;
+        });
+      }
       return found;
     });
   }
@@ -48,11 +51,13 @@ function NarrowItDownController(MenuSearchService) {
   var nid = this;
 
   nid.foundItems = [];
+  nid.dirty = false;
 
   nid.search = function(term) {
     MenuSearchService.getMatchedMenuItems(term).then(result => {
       nid.foundItems = result;
     });
+    nid.dirty = true;
   }
 
   nid.removeItem = function(index) {
