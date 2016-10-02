@@ -37,6 +37,10 @@ found-items {
 li {
   margin-bottom: .5em;
 }
+#no_results {
+  text-align: center;
+  color: red;
+}
 @-webkit-keyframes load8 {
   0% {
     -webkit-transform: rotate(0deg);
