@@ -1,0 +1,24 @@
+.list-group-item {
+  cursor: pointer;
+}
+.list-group-item.active a {
+  color: #fff;
+}
+.list-group-item:hover a {
+  text-decoration: underline;
+}
+.list-group-item:hover.active a {
+  text-decoration: none;
+}
+.menu-items {
+  margin: 1em 0;
+  padding: 0;
+  list-style: none;
+}
+.menu-items li {
+  padding: .5em 0;
+  border-bottom: 1px dotted #ccc;
+}
+.menu-items li:last-child {
+  border-bottom: 0;
+}
